@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  th3pl4gu3:
+    container_name: th3pl4gu3
+    build: ./
+    image: docker.pkg.github.com/mervin16/th3pl4gu3/th3pl4gu3:1.0
+    networks:
+      - th3pl4gu3_net
+    expose:
+      - 8082
+    env_file:
+      - config_local.env
+    restart: always
+
+networks:
+  th3pl4gu3_net:
+    name: th3pl4gu3_network
+    driver: bridge
